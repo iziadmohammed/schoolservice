@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "0014c707-e1dd-42ea-84cd-142341d9cd9a",
+		"name": "Stc Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createSpace",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "admin@stc.com",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"spaceName\":\"stc-test\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/item/createSpace",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"item",
+						"createSpace"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createFolder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "admin@stc.com",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"folderName\":\"testing\",\n    \"spaceId\":1 //if null default space id mentioned in test will be used  \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/item/createFolder",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"item",
+						"createFolder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createFile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "admin@stc.com",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/media/ziad/C0088295088289DC/Work/productionDB.txt"
+						},
+						{
+							"key": "fileName",
+							"value": "ziad.txt",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "folderId",
+							"value": "2",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/item/createFile",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"item",
+						"createFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DownloadFileRest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "zzzzo@stc.com",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/file/?id=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"file",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getItemMeta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "admin@stc.com",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  getItemGraph(id:2) {\n    id\n    name\n    type\n    permissionGroup {\n      id\n    }\n      parentItem {\n        id\n        name\n        type\n      } \n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
