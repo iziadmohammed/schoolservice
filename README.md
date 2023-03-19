@@ -11,6 +11,8 @@ docker-compose build
 
 docker-compose up
 ```
+## Notes
+
 * Sorry i didn't have time to make test cases because i had a critical family emergency situation.
 * I was thinking to put grade id and school id in school time table to increase performance and remove unnecessary joins but i didn't .
 * this is not the ideal way to handle school system off course .
