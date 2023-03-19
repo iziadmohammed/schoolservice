@@ -1,19 +1,23 @@
 
-# Stc file serivce
-
+# Edraky School Service
 
 ## Deployment
 
-To deploy this project run
+To deploy this project using docker
 ```bash
-./mvnw clean package -DskipTests
-cp target/fileservice-0.0.1-SNAPSHOT.jar src/main/docker
+./mvnw clean install
 
-cd src/main/docker
-docker-compose down
+docker-compose build 
+
+docker-compose up
 ```
-* Sorry i didn't have time to test docker fully.
-* I used user email in Authorization Header as token to check user permission.
-* Permission group will be created on startup from data.sql file  with admin as name.
-* You can use admin@stc.com as Edit user and viewer@stc.com as VIEW user.
-* Postman collection can be found in Postman folder.
+* Sorry i didn't have time to make test cases because i had a critical family emergency situation.
+* I was thinking to put grade id and school id in school time table to increase performance and remove unnecessary joins but i didn't .
+* this is not the ideal way to handle school system off course .
+* you can find swagger rest documentation at http://localhost:8080/swagger-ui/
+* migration script can be found under /main/resources/
+* there is two profiles one for h2 database(test) and other for mysql database(prod), to switch between those two profile simply change 
+``spring.profiles.active`` in ``application.properties`` file to be prod or test
+ 
+*Ziad mohamed*\
+*Senior Software Engineer*
